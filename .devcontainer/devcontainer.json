@@ -1,0 +1,16 @@
+{
+  "name": "tm12",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "arm_robot_bridge",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.flake8",
+        "ms-python.mypy-type-checker",
+        "ms-python.black-formatter"
+      ]    
+    }
+  }
+}

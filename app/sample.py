@@ -8,11 +8,22 @@ if __name__ == "__main__":
     # print("status:", robot.status)
     # print("task_run:", robot.taskrun)
     # print("emergency_stop",robot.emergency_stop)
-    print("temp:", robot.temp)
-    print("voltage:", robot.voltage)
-    print("power:", robot.power)
-    print("current:", robot.current)
+    # print("temp:", robot.temp)
+    # print("voltage:", robot.voltage)
+    # print("power:", robot.power)
+    # print("current:", robot.current)
+
     # print("M_A_mode:", robot.M_A_mode)
+
+
+    # """プロジェクト速度(設定できない)"""
+    # print(robot.auto_mode)
+    # robot.set_task_speed(5)
+    # print("task_speed:", robot.task_speed)
+    # robot.set_task_speed(10)
+    # print("task_speed:", robot.task_speed)
+    # robot.set_task_speed(15)
+    # print("task_speed:", robot.task_speed)
 
 
     """プロジェクト書き換え、現在のプロジェクト確認"""
@@ -39,8 +50,8 @@ if __name__ == "__main__":
 
     robot.task_stop()
 
-    # """タスクの停止"""
-    # robot.task_stop()
+    """タスクの停止"""
+    robot.task_stop()
 
 
     # """オートモード確認"""

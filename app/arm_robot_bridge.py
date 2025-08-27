@@ -53,6 +53,11 @@ class ArmRobot:
         light_color = self.client.read_input_registers(reg_addr=7332, reg_nb=1)
         return light_color[0]        
     
+    @property # プロジェクト速度             
+    def task_speed(self):
+        task_speed = self.client.read_input_registers(reg_addr=7101, reg_nb=1)
+        return task_speed[0] 
+
     @property # 温度              
     def temp(self):
         temp = self.client.read_input_registers(reg_addr=7340, reg_nb=2)
@@ -180,3 +185,4 @@ class ArmRobot:
             # 4バイト → float32 に変換
             val = struct.unpack('>f', b)[0]
             return val
+

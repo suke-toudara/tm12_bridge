@@ -42,6 +42,12 @@ class ArmRobotMqttBridge:
         サブスクライブ時のコールバック関数
         """
         if msg.topic == "task_start":
+            time.sleep(1)
+            while self.robot.project_run :
+                time.sleep(1)
+                print("タスク実行中")
+            self.robot.set_project(msg.payload.decode("utf-8"))
+            time.sleep(1)
             self.robot.task_start()
             print("タスク開始メッセージ受信")
         elif msg.topic == "task_stop":
@@ -50,8 +56,6 @@ class ArmRobotMqttBridge:
         elif msg.topic == "get_state":
             self.robot.get_state()
             print("状態表示")
-
-
 
     def run(self):        
         # print("ArmRobot MQTT Bridge 起動")
