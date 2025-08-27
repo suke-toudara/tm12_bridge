@@ -1,0 +1,28 @@
+version: "1"
+services:
+  arm_robot_bridge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      PYTHONPATH: /workspace
+    volumes:
+      - ./:/workspace/
+    command: sleep infinity
+    network_mode: host
+    working_dir: /workspace
+    # command: ["/bin/bash", "-c", "source /opt/ros/noetic/setup.bash && source devel/setup.bash && roslaunch mobile_robot_bringup start.launch"]
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: mqtt
+    expose:
+      - 1883
+    ports:
+      - 1883:1883
+    restart: unless-stopped
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+    network_mode: host
+
+networks:
+  mqtt-local:
